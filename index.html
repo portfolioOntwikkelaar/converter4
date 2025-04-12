@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            min-height: 50px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Intendo</h2>
+    <p>.......</p>
+
+    <!-- Input Textarea -->
+    <textarea id="inputText" placeholder="joke..."></textarea><br>
+
+    <!-- Button to trigger cleanup -->
+    <button onclick="removeText()">sneller</button>
+
+    <!-- Output area where cleaned text will be shown -->
+    <div id="output"></div>
+
+    <script>
+        function removeText() {
+            // Get the input text value
+            const inputText = document.getElementById('inputText').value;
+
+            // Remove 'radio_button_checked' and 'radio_button_unchecked' and replace them with commas
+            let cleanedText = inputText
+                .replace(/radio_button_checked/g, ',')  // Replace 'radio_button_checked' with comma
+                .replace(/radio_button_unchecked/g, ',')  // Replace 'radio_button_unchecked' with comma
+                .replace(/\s+/g, ' ')  // Replace multiple spaces with a single space
+                .replace(/\n+/g, '\n')  // Replace multiple newlines with a single newline
+                .trim();  // Trim leading and trailing spaces
+
+            // Display the cleaned text in the output area
+            document.getElementById('output').textContent = cleanedText;
+        }
+    </script>
+
+</body>
+</html>
