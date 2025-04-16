@@ -62,6 +62,7 @@
             let cleanedText = inputText
                 .replace(/radio_button_checked/g, ',')  // Replace 'radio_button_checked' with comma
                 .replace(/radio_button_unchecked/g, ',')  // Replace 'radio_button_unchecked' with comma
+                .replace(/check_box_outline_blank/g, ',') 
                 .replace(/\s+/g, ' ')  // Replace multiple spaces with a single space
                 .replace(/\n+/g, '\n')  // Replace multiple newlines with a single newline
                 .trim();  // Trim leading and trailing spaces
