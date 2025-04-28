@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Application</title>
+    <title>¨¨¨</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,14 +41,14 @@
 </head>
 <body>
 
-    <h2>Intendo</h2>
+    <h2>999</h2>
     <p>.......</p>
 
     <!-- Input Textarea -->
-    <textarea id="inputText" placeholder="joke..."></textarea><br>
+    <textarea id="inputText" placeholder="....."></textarea><br>
 
     <!-- Button to trigger cleanup -->
-    <button onclick="removeText()">sneller</button>
+    <button onclick="removeText()">"§"</button>
 
     <!-- Output area where cleaned text will be shown -->
     <div id="output"></div>
@@ -58,10 +58,13 @@ function removeText() {
     const inputText = document.getElementById('inputText').value;
 
     let cleanedText = inputText
-        .replace(/radio_button_checked|radio_button_unchecked|check_box_outline_blank/g, '') // Remove unwanted keywords
-        .replace(/\s{2,}/g, ' ')   // Replace multiple spaces with single space
-        .replace(/\n{2,}/g, '\n')  // Replace multiple newlines with single newline
-        .trim();  // Trim leading/trailing whitespace
+        .replace(/check_box_outline_blank\s*/g, '') // Remove 'check_box_outline_blank' and any spaces after it
+        .replace(/radio_button_checked\s*/g, '')    // Same for 'radio_button_checked'
+        .replace(/radio_button_unchecked\s*/g, '')  // Same for 'radio_button_unchecked'
+        .replace(/\s{2,}/g, ' ')                    // Replace multiple spaces with a single space
+        .replace(/^\s+|\s+$/gm, '')                  // Trim spaces at start/end of each line
+        .replace(/\n{2,}/g, '\n')                    // Replace multiple blank lines with one
+        .trim();                                     // Trim full text start and end
 
     document.getElementById('output').textContent = cleanedText;
 }
