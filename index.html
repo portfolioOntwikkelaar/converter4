@@ -58,9 +58,9 @@ function removeText() {
     const inputText = document.getElementById('inputText').value;
 
     let cleanedText = inputText
-        .replace(/check_box_outline_blank\s*/g, '') // Remove 'check_box_outline_blank' and any spaces after it
-        .replace(/radio_button_checked\s*/g, '')    // Same for 'radio_button_checked'
-        .replace(/radio_button_unchecked\s*/g, '')  // Same for 'radio_button_unchecked'
+        .replace(/check_box_outline_blank\s*/g, ',') // Remove 'check_box_outline_blank' and any spaces after it
+        .replace(/radio_button_checked\s*/g, ',')    // Same for 'radio_button_checked'
+        .replace(/radio_button_unchecked\s*/g, ',')  // Same for 'radio_button_unchecked'
         .replace(/\s{2,}/g, ' ')                    // Replace multiple spaces with a single space
         .replace(/^\s+|\s+$/gm, '')                  // Trim spaces at start/end of each line
         .replace(/\n{2,}/g, '\n')                    // Replace multiple blank lines with one
