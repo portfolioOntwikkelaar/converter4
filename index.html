@@ -54,23 +54,18 @@
     <div id="output"></div>
 
     <script>
-        function removeText() {
-            // Get the input text value
-            const inputText = document.getElementById('inputText').value;
+function removeText() {
+    const inputText = document.getElementById('inputText').value;
 
-            // Remove 'radio_button_checked' and 'radio_button_unchecked' and replace them with commas
-            let cleanedText = inputText
-                .replace(/radio_button_checked/g, ',')  // Replace 'radio_button_checked' with comma
-                .replace(/radio_button_unchecked/g, ',')  // Replace 'radio_button_unchecked' with comma
-                .replace(/check_box_outline_blank/g, ',') 
-                .replace(/\s+/g, ' ')  // Replace multiple spaces with a single space
-                .replace(/\n+/g, '\n')  // Replace multiple newlines with a single newline
-                .trim();  // Trim leading and trailing spaces
+    let cleanedText = inputText
+        .replace(/radio_button_checked|radio_button_unchecked|check_box_outline_blank/g, '') // Remove unwanted keywords
+        .replace(/\s{2,}/g, ' ')   // Replace multiple spaces with single space
+        .replace(/\n{2,}/g, '\n')  // Replace multiple newlines with single newline
+        .trim();  // Trim leading/trailing whitespace
 
-            // Display the cleaned text in the output area
-            document.getElementById('output').textContent = cleanedText;
-        }
-    </script>
+    document.getElementById('output').textContent = cleanedText;
+}
+</script>
 
 </body>
 </html>
