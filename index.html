@@ -18,9 +18,9 @@
 
     .container {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Stack items vertically */
         justify-content: center;
+        align-items: center;
         background-color: #222;
         padding: 20px;
         border-radius: 15px;
@@ -49,6 +49,7 @@
         color: white;
         border: none;
         border-radius: 10px;
+        margin-bottom: 10px; /* Adds space below the button */
     }
 
     button:hover {
@@ -65,6 +66,7 @@
         word-wrap: break-word;
         background-color: #333;
         color: white;
+        width: 100%; /* Ensures the output box stretches to fit the width of the container */
     }
 </style>
 </head>
