@@ -5,101 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¨¨¨</title>
     <style>
-    body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-        background: linear-gradient(45deg, #333, #666);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
-    .container {
-        display: flex;
-        flex-direction: column; /* Stack items vertically */
-        justify-content: center;
-        align-items: center;
-        background-color: #222;
-        padding: 20px;
-        border-radius: 15px;
-        width: 80%;
-        max-width: 600px;
-    }
+  body {
+    font-family: 'Arial', sans-serif;
+    background: radial-gradient(circle at center, #0b0c1b 0%, #020214 80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #ff1a1a;
+  }
 
-    textarea {
-        width: 100%;
-        height: 150px;
-        padding: 10px;
-        font-size: 14px;
-        margin-bottom: 10px;
-        box-sizing: border-box;
-        border-radius: 10px;
-        border: 1px solid #ccc;
-        background-color: #444;
-        color: white;
-    }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #0e0f23;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 700px;
+    width: 90%;
+    box-shadow:
+      0 0 10px #ff0000aa,
+      0 0 20px #ff0000cc,
+      0 0 40px #ff0000dd,
+      0 0 80px #ff0000ff;
+  }
 
-    button {
-        padding: 10px 20px;
-        font-size: 14px;
-        cursor: pointer;
-        background-color: #f5c69b;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        margin-bottom: 10px; /* Adds space below the button */
-    }
+  textarea {
+    width: 100%;
+    height: 160px;
+    background: #1a1a2e;
+    border: 2px solid #ff1a1a;
+    border-radius: 15px;
+    padding: 15px;
+    font-family: 'Orbitron', monospace;
+    font-size: 16px;
+    color: #ff3333;
+    box-shadow:
+      inset 0 0 8px #ff1a1a,
+      0 0 15px #ff1a1a;
+    resize: none;
+    outline: none;
+  }
 
-    button:hover {
-        background-color: #e4b28f;
-    }
+  #output {
+    margin-top: 20px;
+    width: 100%;
+    min-height: 160px;
+    background: #1a1a2e;
+    border: 2px solid #ff1a1a;
+    border-radius: 15px;
+    padding: 15px;
+    font-family: 'Orbitron', monospace;
+    font-size: 16px;
+    color: #FFCC33;
+    box-shadow:
+      inset 0 0 8px #ff1a1a,
+      0 0 15px #ff1a1a;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
 
-    #output {
-        margin-top: 10px;
-        padding: 10px;
-        border-radius: 10px;
-        border: 1px solid #ccc;
-        min-height: 50px;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        background-color: #333;
-        color: white;
-        width: 100%; /* Ensures the output box stretches to fit the width of the container */
-    }
+  button {
+    margin-top: 20px;
+    padding: 15px 40px;
+    background: #FFCC33;
+    border: none;
+    border-radius: 30px;
+    color: #FFCC33;
+    font-family: 'Orbitron', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow:
+  0 0 10px #FFAA00,
+  0 0 20px #FFCC33,
+  0 0 40px #FFCC33,
+  0 0 80px #FFAA00;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+  background: radial-gradient(circle at center, #FFCC33, #FF9900);
+  box-shadow:
+    0 0 15px #FFCC33,
+    0 0 30px #FFCC33,
+    0 0 45px #FF9900,
+    0 0 60px #FF6600;
+}
 </style>
 </head>
 <body>
-
-    <h2>999</h2>
+  <div class="container">
+    <h2>-+-</h2>
     <p>.......</p>
 
     <!-- Input Textarea -->
-    <textarea id="inputText" placeholder="....."></textarea><br>
+    <textarea id="inputText" placeholder="....."></textarea>
 
     <!-- Button to trigger cleanup -->
-    <button onclick="removeText()">"§"</button>
+    <button onclick="removeText()">§</button>
 
     <!-- Output area where cleaned text will be shown -->
-    <div id="output"></div>
+    <div id="output" aria-live="polite" aria-label="Output monitor">!!!!!</div>
+  </div>
 
-    <script>
-function removeText() {
-    const inputText = document.getElementById('inputText').value;
+  <script>
+    function removeText() {
+      const inputText = document.getElementById('inputText').value;
 
-    let cleanedText = inputText
-        .replace(/check_box_outline_blank\s*/g, ',') // Remove 'check_box_outline_blank' and any spaces after it
-        .replace(/radio_button_checked\s*/g, ',')    // Same for 'radio_button_checked'
-        .replace(/radio_button_unchecked\s*/g, ',')  // Same for 'radio_button_unchecked'
-        .replace(/\s{2,}/g, ' ')                    // Replace multiple spaces with a single space
+      let cleanedText = inputText
+        .replace(/check_box_outline_blank\s*/g, ',') // Remove 'check_box_outline_blank' and spaces
+        .replace(/radio_button_checked\s*/g, ',')   // Same for 'radio_button_checked'
+        .replace(/radio_button_unchecked\s*/g, ',') // Same for 'radio_button_unchecked'
+        .replace(/\s{2,}/g, ' ')                     // Multiple spaces to one
         .replace(/^\s+|\s+$/gm, '')                  // Trim spaces at start/end of each line
-        .replace(/\n{2,}/g, '\n')                    // Replace multiple blank lines with one
-        .trim();                                     // Trim full text start and end
+        .replace(/\n{2,}/g, '\n')                    // Multiple blank lines to one
+        .trim();
 
-    document.getElementById('output').textContent = cleanedText;
-}
-</script>
-
+      document.getElementById('output').textContent = cleanedText;
+    }
+  </script>
 </body>
 </html>
